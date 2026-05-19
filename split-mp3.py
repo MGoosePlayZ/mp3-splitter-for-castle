@@ -6,7 +6,7 @@ import zipfile
 import shutil
 
 if len(sys.argv) < 2:
-    print("Usage: python split_mp3.py input.mp3 output_folder")
+    print("Usage: mp3split input.mp3")
     sys.exit(1)
 
 input_file = Path(sys.argv[1]).expanduser()
@@ -32,5 +32,7 @@ zip_name = input_file.stem + "_chunks.zip"
 with zipfile.ZipFile(zip_name, "w") as z:
     for file in sorted(output_dir.iterdir()):
         z.write(file, file.name)
+
+shutil.rmtree(output_dir)
 
 print("Created:", zip_name)
