@@ -23,3 +23,5 @@ echo ""
 echo "Installed successfully."
 echo "Use it like:"
 echo "mp3split ~/storage/music/song.mp3"
+
+# These echos probably won't show up in Termux...
