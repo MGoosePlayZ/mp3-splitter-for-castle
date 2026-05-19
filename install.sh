@@ -8,8 +8,10 @@ pkg update -y
 echo "Installing requirements..."
 pkg install -y python ffmpeg curl
 
-echo "Setting up storage..."
-termux-setup-storage
+if [ ! -d "$HOME/storage" ]; then
+    echo "Setting up storage..."
+    termux-setup-storage
+fi
 
 echo "Installing mp3split..."
 
@@ -23,5 +25,3 @@ echo ""
 echo "Installed successfully."
 echo "Use it like:"
 echo "mp3split ~/storage/music/song.mp3"
-
-# These echos probably won't show up in Termux...
